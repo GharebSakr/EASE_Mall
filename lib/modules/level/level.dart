@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'directory.dart';
+import '../directory/directory.dart';
 class LevelScreen extends StatelessWidget {
   List LeveL =
   [

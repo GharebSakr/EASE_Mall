@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'directory.dart';
-
-class AzScreen extends StatelessWidget {
+import '../directory/directory.dart';
+class Categories extends StatelessWidget {
   @override
   List<String> countries = [
-    "Nepal",
-    "India",
-    "Pakistan",
-    "Bangladesh",
-    "USA",
-    "Canada",
-    "China",
-    "Russia",
+    "ATM",
+    "Accessories",
+    "Dining",
+    "Bank Services",
+    "Electronics",
+    "Hotel",
+    "Kids Toys",
+    "Offices",
   ];
   Widget build(BuildContext context) {
     countries.sort((a,b){return a.compareTo(b);});
@@ -22,7 +21,7 @@ class AzScreen extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: countries.map((cone){
-              return Container(
+            return Container(
               child:Card(
                 child: Container(
                   width: double.infinity,
@@ -30,8 +29,8 @@ class AzScreen extends StatelessWidget {
                   child: Text(cone,style: TextStyle(fontSize: 18),),
                 ),
               ) ,
-              );
-      }).toList(),
+            );
+          }).toList(),
 
         ),
       ),

@@ -9,7 +9,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../directory.dart';
+import '../directory/directory.dart';
 
 class MallPage extends StatelessWidget {
   const MallPage ({Key? key}) : super(key: key);

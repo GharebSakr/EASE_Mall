@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'a_to_z.dart';
-import 'categoriea.dart';
-import 'level.dart';
+import '../a_to_z/a_to_z.dart';
+import '../categoriea/categoriea.dart';
+import '../level/level.dart';
 class Directiry extends StatefulWidget {
   @override
   _DirectiryState createState() => _DirectiryState();
