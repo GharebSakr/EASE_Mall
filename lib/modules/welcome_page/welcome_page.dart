@@ -19,7 +19,7 @@ class WelcomePage extends StatelessWidget {
             decoration: BoxDecoration(
 
                 image: DecorationImage(
-                  image: NetworkImage('https://a.cdn-hotels.com/gdcs/production183/d391/c1e560f1-7034-44d7-8ce6-17b3fdcbe4b7.jpg'),
+                  image: AssetImage('assets/images/mall_background.jpg'),
                   fit: BoxFit.cover,
 
 
@@ -36,7 +36,7 @@ class WelcomePage extends StatelessWidget {
 
               decoration: BoxDecoration(
 
-                  image: DecorationImage(image: NetworkImage('https://png2.cleanpng.com/sh/9e331c2918876292f0d6585f45c8f701/L0KzQYm3VcI1N5tojJH0aYP2gLBuTf1ieqUyh9DuLYbsd7L1TgRpbV5yed51LXH3Pb7wjPxmdppmReVxb4DzebBuTfNmdqV3ReV9ZYLvebBuTcVjOGdmTNMCNXbpQoO5Tsc1P2g2SKUDMUW1R4K9UsAzO2QAS5D5bne=/kisspng-mart-one-vigan-the-mall-at-millenia-shopping-centr-sterling-5b06a4a75ff222.747710381527162023393.png'))
+                  image: DecorationImage(image: AssetImage('assets/images/mall_logo.png'))
                   ,
                   color: Colors.white.withOpacity(0.7)
               ),

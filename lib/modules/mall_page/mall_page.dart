@@ -83,7 +83,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://www.retail-insight-network.com/wp-content/uploads/sites/18/2019/11/1l-Image-Mall-of-Oman.jpg'),
+                                image:AssetImage('assets/images/mall_directory.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.deepPurple.withOpacity(0.6),
                                     BlendMode.darken)
@@ -134,7 +134,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://assets.sentinelassam.com/h-upload/2020/12/23/1600x960_183821-cinema-hall.jpg'),
+                                image:AssetImage('assets/images/cinema.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.red.withOpacity(0.6),
                                     BlendMode.darken)
@@ -179,7 +179,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://media-cdn.tripadvisor.com/media/photo-s/0f/96/15/39/dining-area.jpg'),
+                                image:AssetImage('assets/images/dining.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.amberAccent.withOpacity(0.6),
                                     BlendMode.darken)
@@ -230,7 +230,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThz4FOC9WfNTkNY4Qr9EEiTriO8Jlmiw7gzwV1uackVo_BqRUa2PJbOPrvCZEvtTkTMg&usqp=CAU'),
+                                image:AssetImage('assets/images/parking.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6),
                                     BlendMode.darken)
@@ -301,7 +301,8 @@ class MallPage extends StatelessWidget {
                               height: 180,
                               width: 180,
                               alignment: Alignment.center,
-                              child: Image(image: NetworkImage('https://retailinasia.com/wp-content/uploads/2020/04/South-Korea-Department-Store-Online-Mall-Fashion-News-Retail-In-Asia-770x486.jpg')))
+                              child: Image(image: AssetImage('assets/images/about.jpg'),
+                              ))
                         ],
                       ) //you can add image or other widgets
                   ),
@@ -339,7 +340,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://retaildesignblog.net/wp-content/uploads/2011/08/FF-fashion-store-by-Four-IV-Prague.jpg'),
+                                image:AssetImage('assets/images/fashion.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6),
                                     BlendMode.darken)
@@ -384,7 +385,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://www.retail-insight-network.com/wp-content/uploads/sites/18/2019/11/1l-Image-Mall-of-Oman.jpg'),
+                                image:AssetImage('assets/images/mall_directory.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.red.withOpacity(0.6),
                                     BlendMode.darken)
@@ -436,7 +437,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSmd5HHY-r9D_be7vEJKo16WjIRtWoSzvRw&usqp=CAU'),
+                                image:AssetImage('assets/images/contact.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.red.withOpacity(0.6),
                                     BlendMode.darken)
@@ -486,7 +487,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://i.pinimg.com/originals/5b/86/d0/5b86d0bf45d9a77e007b1eefe9050404.jpg'),
+                                image:AssetImage('assets/images/services.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.amberAccent.withOpacity(0.6),
                                     BlendMode.darken)
@@ -538,7 +539,7 @@ class MallPage extends StatelessWidget {
                             color: Colors.black,
                             backgroundBlendMode: BlendMode.multiply,
                             image: DecorationImage(
-                                image:NetworkImage('https://retailinasia.com/wp-content/uploads/2020/04/South-Korea-Department-Store-Online-Mall-Fashion-News-Retail-In-Asia-770x486.jpg'),
+                                image:AssetImage('assets/images/about.jpg'),
                                 fit:BoxFit.cover,
                                 colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6),
                                     BlendMode.darken)

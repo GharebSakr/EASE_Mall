@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(
 
                 image: DecorationImage(
-                  image: NetworkImage('https://a.cdn-hotels.com/gdcs/production183/d391/c1e560f1-7034-44d7-8ce6-17b3fdcbe4b7.jpg'),
+                  image: AssetImage('assets/images/mall_background.jpg'),
                   fit: BoxFit.cover,
 
 
