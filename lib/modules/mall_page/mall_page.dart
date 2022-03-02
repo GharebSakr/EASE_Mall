@@ -1,5 +1,6 @@
 import 'package:ease_mall/modules/about_us/about_us.dart';
 import 'package:ease_mall/modules/contact_us_page/contact_us_page.dart';
+import 'package:ease_mall/modules/fashion_page/food_screen.dart';
 import 'package:ease_mall/modules/food_screen/food_screen.dart';
 import 'package:ease_mall/modules/mall_map_screen/mall_map_screen.dart';
 import 'package:ease_mall/modules/services/services.dart';
@@ -349,6 +350,13 @@ class MallPage extends StatelessWidget {
                           )
                       ),onTap:(){
                     print("you clicked me");
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FashionScreen(),
+                        )
+                    );
+
                   }
                   ),
 
