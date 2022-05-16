@@ -1,9 +1,11 @@
+import 'package:ease_mall/shared/dio_helper.dart';
 import 'package:flutter/material.dart';
 
 import 'modules/login_page/login_page.dart';
 import 'modules/welcome_page/welcome_page.dart';
 
 void main() {
+  DioHelper.init();
   runApp(const MyApp());
 }
 

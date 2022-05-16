@@ -300,7 +300,7 @@ class MallPage extends StatelessWidget {
                           SizedBox(width: 10,),
                           Container(
                               height: 180,
-                              width: 180,
+                              width: 140,
                               alignment: Alignment.center,
                               child: Image(image: AssetImage('assets/images/about.jpg'),
                               ))

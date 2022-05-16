@@ -30,10 +30,13 @@ class _DirectiryState extends State<Directiry> {
       ),
       body: Column(
           children: [
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Search',
-                suffixIcon: Icon(Icons.search),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  suffixIcon: Icon(Icons.search),
+                ),
               ),
             ),
             Row(children: List.generate(menuItems.length, (index){
