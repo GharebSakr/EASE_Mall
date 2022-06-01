@@ -124,12 +124,38 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () async {
                       // Validate returns true if the form is valid, or false otherwise.
                      LoginModel loginModel=LoginModel();
-                     loginModel.password=password.text;
                      loginModel.email=email.text;
-                   await  DioHelper.Search(loginModel: loginModel);
-                   if(loginModel==null){
-                     return null;
-                   }else{
+                     loginModel.password=password.text;
+                   var a= await  DioHelper.login(loginModel: loginModel);
+                   if(a==null)
+                   {
+                     showAlertDialog(BuildContext context) {
+
+                       // set up the button
+                       Widget okButton = TextButton(
+                         child: Text("OK"),
+                         onPressed: () { },
+                       );
+
+                       // set up the AlertDialog
+                       AlertDialog alert = AlertDialog(
+                         title: Text("Error"),
+                         content: Text("Email OR Password is Not Found"),
+                         actions: [
+                           okButton,
+                         ],
+                       );
+
+                       // show the dialog
+                       showDialog(
+                         context: context,
+                         builder: (BuildContext context) {
+                           return alert;
+                         },
+                       );
+                     }
+                   }else
+                   {
                      Navigator.push(
                          context,
                          MaterialPageRoute(

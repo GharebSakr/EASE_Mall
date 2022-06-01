@@ -53,6 +53,7 @@ class _LoginScreen3State extends State<RegistrationPage> {
                 ),
                 TextFormField(
                   controller: name,
+                  onChanged: (text) {},
                   onFieldSubmitted: (Value) {
                     print(Value);
                   },
@@ -76,6 +77,7 @@ class _LoginScreen3State extends State<RegistrationPage> {
                 ),
                 TextFormField(
                   controller: email,
+                  onChanged: (text) {},
                   onFieldSubmitted: (Value) {
                     print(Value);
                   },
@@ -99,6 +101,7 @@ class _LoginScreen3State extends State<RegistrationPage> {
                 ),
                 TextFormField(
                   controller: password,
+                  onChanged: (text) {},
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Password must not be empty';
@@ -127,6 +130,8 @@ class _LoginScreen3State extends State<RegistrationPage> {
                 ),
                 TextFormField(
                   controller: phone,
+                  onChanged: (text) {},
+                  maxLength: 11,
                   onFieldSubmitted: (Value) {
                     print(Value);
                   },
@@ -162,20 +167,15 @@ class _LoginScreen3State extends State<RegistrationPage> {
                       ),
                       onPressed: () async {
                         UserModel userModel = UserModel();
-                        userModel.id=0;
                         userModel.name = name.text;
                         userModel.email = email.text;
                         userModel.phone = phone.text;
                         userModel.password = password.text;
-                        userModel.isactive=0;
-                        var a= await DioHelper.Add(userModel: userModel);
-                        print(userResponse!.email);
-                        print("hiiiiiiiiiiiii");
-                        if (a == null)
-                        {
+                        userModel.isactive = 0;
+                        var a = await DioHelper.Add(userModel: userModel);
+                        if (a == null) {
                           return null;
-                        } else
-                        {
+                        } else {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
