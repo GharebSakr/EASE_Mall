@@ -1,4 +1,5 @@
 //import 'dart:_http';
+import 'dart:convert';
 import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
@@ -81,6 +82,9 @@ class DioHelper {
       "password": userModel.password,
       "isactive": userModel.isactive,
     }).then((value) {
+      print("hiiiiiiiiiiiiiiiii");
+      print(value.data);
+      print(UserResponse.fromJson(value.data));
       userResponse = UserResponse.fromJson(value.data);
     }).catchError((error) {
       print(error.toString());

@@ -174,8 +174,10 @@ class _LoginScreen3State extends State<RegistrationPage> {
                         userModel.isactive = 0;
                         var a = await DioHelper.Add(userModel: userModel);
                         if (a == null) {
+                          print("helllo");
                           return null;
                         } else {
+                          print("يا مراحب");
                           Navigator.push(
                               context,
                               MaterialPageRoute(

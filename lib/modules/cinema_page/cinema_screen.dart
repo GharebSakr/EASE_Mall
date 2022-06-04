@@ -1,40 +1,63 @@
-import 'package:ease_mall/models/product_model.dart';
-import 'package:ease_mall/modules/cafe_screen/cubit/cubit.dart';
-import 'package:ease_mall/modules/cafe_screen/cubit/state.dart';
-import 'package:ease_mall/modules/food_screen/food_screen.dart';
-import 'package:ease_mall/modules/information_screen/information_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../shared/components/components.dart';
-import '../../shared/dio_helper.dart';
+class CinemaScreen extends StatefulWidget {
+  const CinemaScreen({Key? key}) : super(key: key);
 
-class CafeScreen extends StatefulWidget {
   @override
-  State<CafeScreen> createState() => _CafeScreenState();
+  State<CinemaScreen> createState() => _CinemaScreenState();
 }
 
-class _CafeScreenState extends State<CafeScreen> {
-  Color _iconColor = Colors.grey;
-
-  IconData _iconShape = Icons.favorite_border;
-
+class _CinemaScreenState extends State<CinemaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Cafes'),
+          title: Text('Cinema'),
+          centerTitle: true,
+          backgroundColor: Colors.blueGrey,
+        ),
+        body: GridView(
+            padding: EdgeInsets.symmetric(
+              horizontal: 12,
+              vertical: 12,
+            ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, crossAxisSpacing: 16, mainAxisSpacing: 16),
+            children: [
+              Image.network('https://picsum.photos/250?image=1'),
+              Image.network('https://picsum.photos/250?image=2'),
+              Image.network('https://picsum.photos/250?image=3'),
+            ]));
+  }
+}
+
+class CinemaPage extends StatefulWidget {
+  const CinemaPage({Key? key}) : super(key: key);
+
+  @override
+  State<CinemaPage> createState() => _CinemaPageState();
+}
+
+class _CinemaPageState extends State<CinemaPage> {
+  Color _iconColor = Colors.grey;
+
+  IconData _iconShape = Icons.favorite_border;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('CINEMA'),
           centerTitle: true,
           backgroundColor: Colors.blueGrey,
         ),
         body: ListView.builder(
-            itemCount: 31,
+            itemCount: 4,
             itemBuilder: (BuildContext context, int index) {
               return Card(
                 child: ListTile(
                   leading: Container(
                     padding: EdgeInsets.all(10),
-                    child: Image.asset('assets/images/images.png'),
+                    child: Image.asset('assets/images/gb.jpg'),
                   ),
                   trailing: IconButton(
                     icon: Icon(_iconShape),
@@ -55,7 +78,7 @@ class _CafeScreenState extends State<CafeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "cafeshop",
+                        "VIP Cinema",
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
@@ -79,7 +102,7 @@ class _CafeScreenState extends State<CafeScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => InformationScreen()));
+                            builder: (context) => CinemaScreen()));
                   },
                 ),
               );
