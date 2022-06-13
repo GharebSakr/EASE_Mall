@@ -3,9 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:ease_mall/models/gategoryidresponse.dart';
 import 'package:ease_mall/models/login_model.dart';
-import 'package:ease_mall/models/productResponse.dart';
-import 'package:ease_mall/models/product_model.dart';
 import 'package:ease_mall/models/userResponse.dart';
 import 'package:ease_mall/models/user_model.dart';
 import 'package:ease_mall/models/variables.dart';
@@ -68,12 +67,6 @@ class DioHelper {
   }
 
   static Future<Response?> Add({required UserModel userModel}) async {
-    (dio?.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-        (HttpClient dioClient) {
-      dioClient.badCertificateCallback =
-          ((X509Certificate cert, String host, int port) => true);
-      return dioClient;
-    };
     return await dio?.post('/User/Add', data: {
       "name": userModel.name,
       "phone": userModel.phone,
@@ -82,9 +75,6 @@ class DioHelper {
       "password": userModel.password,
       "isactive": userModel.isactive,
     }).then((value) {
-      print("hiiiiiiiiiiiiiiiii");
-      print(value.data);
-      print(UserResponse.fromJson(value.data));
       userResponse = UserResponse.fromJson(value.data);
     }).catchError((error) {
       print(error.toString());
@@ -102,12 +92,12 @@ class DioHelper {
     });
   }
 
-  static Future<Response?> FindByIdCategory(
-      {required ProductModel productModel, queryparameter}) async {
+  static Future<Response?> FindByIdCategory(String s,
+      {required int? id, queryparameter}) async {
     return await dio?.get('​/Inside​/FindByIdCategory', queryParameters: {
-      "idcategory": productModel.id,
+      "idcategory": id,
     }).then((value) {
-      productResponse = ProductResponse.fromJson(value.data);
+      listOfProductResponse = GategoryIdResponse.fromJson(value.data);
     }).catchError((error) {
       print(error.toString());
     });

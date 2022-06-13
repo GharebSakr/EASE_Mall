@@ -1,3 +1,4 @@
+import 'package:ease_mall/modules/cinema_page/vedio_screen.dart';
 import 'package:flutter/material.dart';
 
 class CinemaScreen extends StatefulWidget {
@@ -8,26 +9,40 @@ class CinemaScreen extends StatefulWidget {
 }
 
 class _CinemaScreenState extends State<CinemaScreen> {
+  List<String> images = [
+    "assets/images/11.jpg",
+    "assets/images/99.jpg",
+    "assets/images/88.jpg",
+    "assets/images/22.png",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Cinema'),
-          centerTitle: true,
-          backgroundColor: Colors.blueGrey,
-        ),
-        body: GridView(
-            padding: EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 12,
-            ),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 16, mainAxisSpacing: 16),
-            children: [
-              Image.network('https://picsum.photos/250?image=1'),
-              Image.network('https://picsum.photos/250?image=2'),
-              Image.network('https://picsum.photos/250?image=3'),
-            ]));
+      appBar: AppBar(
+        title: Text('Cinema'),
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: GridView.builder(
+        itemCount: images.length,
+        itemBuilder: (BuildContext context, int index) {
+          return MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => VideoApp(),
+                    ));
+              },
+              child: Container(
+                  height: 300, width: 300, child: Image.asset(images[index])));
+        },
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 2),
+        padding: EdgeInsets.all(2),
+        shrinkWrap: true,
+      ),
+    );
   }
 }
 
@@ -42,6 +57,12 @@ class _CinemaPageState extends State<CinemaPage> {
   Color _iconColor = Colors.grey;
 
   IconData _iconShape = Icons.favorite_border;
+  final List<String> entity = [
+    'VIP Cinema',
+    'Stars Cinema',
+    'Diamond Cinema',
+    'Golden Stars Cinema'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +99,7 @@ class _CinemaPageState extends State<CinemaPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "VIP Cinema",
+                        '${entity[index]}',
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,

@@ -18,6 +18,7 @@ class UserResponse {
     this.password,
     this.addersses,
     this.isactive,
+    this.logins,
   });
 
   int? id;
@@ -27,6 +28,7 @@ class UserResponse {
   String? password;
   String? addersses;
   int? isactive;
+  List<Login>? logins;
 
   factory UserResponse.fromJson(Map<String, dynamic> json) => UserResponse(
         id: json["id"],
@@ -36,6 +38,7 @@ class UserResponse {
         password: json["password"],
         addersses: json["addersses"],
         isactive: json["isactive"],
+        logins: List<Login>.from(json["logins"].map((x) => Login.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -46,5 +49,42 @@ class UserResponse {
         "password": password,
         "addersses": addersses,
         "isactive": isactive,
+        "logins": List<dynamic>.from(logins!.map((x) => x.toJson())),
+      };
+}
+
+class Login {
+  Login({
+    this.id,
+    this.status,
+    this.isactive,
+    this.time,
+    this.deviceIp,
+    this.userId,
+  });
+
+  int? id;
+  String? status;
+  int? isactive;
+  DateTime? time;
+  String? deviceIp;
+  int? userId;
+
+  factory Login.fromJson(Map<String, dynamic> json) => Login(
+        id: json["id"],
+        status: json["status"],
+        isactive: json["isactive"],
+        time: DateTime.parse(json["time"]),
+        deviceIp: json["deviceIp"],
+        userId: json["userId"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "status": status,
+        "isactive": isactive,
+        "time": time?.toIso8601String(),
+        "deviceIp": deviceIp,
+        "userId": userId,
       };
 }

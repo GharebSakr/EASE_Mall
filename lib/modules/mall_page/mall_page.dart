@@ -5,10 +5,7 @@ import 'package:ease_mall/modules/fashion_page/food_screen.dart';
 import 'package:ease_mall/modules/food_screen/food_screen.dart';
 import 'package:ease_mall/modules/mall_map_screen/mall_map_screen.dart';
 import 'package:ease_mall/modules/services/services.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../directory/directory.dart';

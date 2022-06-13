@@ -172,12 +172,10 @@ class _LoginScreen3State extends State<RegistrationPage> {
                         userModel.phone = phone.text;
                         userModel.password = password.text;
                         userModel.isactive = 0;
-                        var a = await DioHelper.Add(userModel: userModel);
-                        if (a == null) {
-                          print("helllo");
+                        await DioHelper.Add(userModel: userModel);
+                        if (userResponse == null) {
                           return null;
                         } else {
-                          print("يا مراحب");
                           Navigator.push(
                               context,
                               MaterialPageRoute(

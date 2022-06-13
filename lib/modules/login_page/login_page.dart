@@ -1,4 +1,5 @@
 import 'package:ease_mall/models/login_model.dart';
+import 'package:ease_mall/models/variables.dart';
 import 'package:ease_mall/modules/home_page/home_page.dart';
 import 'package:ease_mall/modules/registration_page/registration_page.dart';
 import 'package:ease_mall/shared/dio_helper.dart';
@@ -6,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -21,25 +21,19 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-
         centerTitle: true,
-
-
-        title: Text('EASE Mall',
+        title: Text(
+          'EASE Mall',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
-
-          IconButton(onPressed: (){
-
-            print('Hello');
-
-          }, icon: Icon(Icons.search_rounded))
-
+          IconButton(
+              onPressed: () {
+                print('Hello');
+              },
+              icon: Icon(Icons.search_rounded))
         ],
-
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -48,161 +42,139 @@ class _LoginScreenState extends State<LoginScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text('Login',
-                  style: TextStyle(fontWeight: FontWeight.bold,
-                      fontSize: 40.0),
+                Text(
+                  'Login',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(
+                  height: 20.0,
+                ),
                 TextFormField(
                   controller: email,
-                  onFieldSubmitted: (Value){
-
+                  onFieldSubmitted: (Value) {
                     print(Value);
-
                   },
-
-                  validator: (value){
-
-                    if (value!.isEmpty){
-
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return 'Email must not be empty';
-
                     }
 
                     return null;
-
                   },
                   keyboardType: TextInputType.emailAddress,
-
                   decoration: InputDecoration(
                     labelText: 'Email Address',
                     prefixIcon: Icon(Icons.email),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
-
-
-
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0)),
                   ),
-
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(
+                  height: 20.0,
+                ),
                 TextFormField(
                   controller: password,
                   validator: (value) {
-                    if(value!.isEmpty){
-
+                    if (value!.isEmpty) {
                       return 'Password must not be empty';
-                    };
+                    }
+                    ;
                     return null;
-
                   },
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: secureP,
-
                   decoration: InputDecoration(
                       labelText: 'Password',
                       prefixIcon: Icon(Icons.email),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
-                      suffixIcon: IconButton(onPressed: (){
-
-                        secureP = !secureP;
-                        setState(() {
-
-                        });
-
-                      }, icon: secureP? Icon(Icons.visibility) : Icon(Icons.visibility_off))
-
-
-
-                  ),
-
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            secureP = !secureP;
+                            setState(() {});
+                          },
+                          icon: secureP
+                              ? Icon(Icons.visibility)
+                              : Icon(Icons.visibility_off))),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(
+                  height: 20.0,
+                ),
                 Container(
                   color: Colors.blue,
                   width: double.infinity,
                   child: MaterialButton(
                     onPressed: () async {
                       // Validate returns true if the form is valid, or false otherwise.
-                     LoginModel loginModel=LoginModel();
-                     loginModel.email=email.text;
-                     loginModel.password=password.text;
-                   var a= await  DioHelper.login(loginModel: loginModel);
-                   if(a==null)
-                   {
-                     showAlertDialog(BuildContext context) {
+                      LoginModel loginModel = LoginModel();
+                      loginModel.email = email.text;
+                      loginModel.password = password.text;
+                      var a = await DioHelper.login(loginModel: loginModel);
+                      if (loginResponse == null) {
+                        showAlertDialog(BuildContext context) {
+                          // set up the button
+                          Widget okButton = TextButton(
+                            child: Text("OK"),
+                            onPressed: () {},
+                          );
 
-                       // set up the button
-                       Widget okButton = TextButton(
-                         child: Text("OK"),
-                         onPressed: () { },
-                       );
+                          // set up the AlertDialog
+                          AlertDialog alert = AlertDialog(
+                            title: Text("Error"),
+                            content: Text("Email OR Password is Not Found"),
+                            actions: [
+                              okButton,
+                            ],
+                          );
 
-                       // set up the AlertDialog
-                       AlertDialog alert = AlertDialog(
-                         title: Text("Error"),
-                         content: Text("Email OR Password is Not Found"),
-                         actions: [
-                           okButton,
-                         ],
-                       );
-
-                       // show the dialog
-                       showDialog(
-                         context: context,
-                         builder: (BuildContext context) {
-                           return alert;
-                         },
-                       );
-                     }
-                   }else
-                   {
-                     Navigator.push(
-                         context,
-                         MaterialPageRoute(
-                           builder: (context) => HomePage(),
-                         )
-                     );
-
-                   }
+                          // show the dialog
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return alert;
+                            },
+                          );
+                        }
+                      } else {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(),
+                            ));
+                      }
                     },
-                    child: Text('Login',
-
-                      style: TextStyle(fontWeight: FontWeight.bold,
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(
+                  height: 20.0,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Didn\'t have an account?'),
                     TextButton(
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => RegistrationPage(),
-                              )
-                          );
-
-
+                              ));
                         },
-                        child: Text('Sign up here')
-                    )
+                        child: Text('Sign up here'))
                   ],
                 )
-
-
-
               ],
             ),
           ),
         ),
       ),
-
     );
   }
 }

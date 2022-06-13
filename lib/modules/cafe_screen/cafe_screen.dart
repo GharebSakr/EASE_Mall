@@ -1,7 +1,4 @@
 import 'package:ease_mall/models/product_model.dart';
-import 'package:ease_mall/modules/cafe_screen/cubit/cubit.dart';
-import 'package:ease_mall/modules/cafe_screen/cubit/state.dart';
-import 'package:ease_mall/modules/food_screen/food_screen.dart';
 import 'package:ease_mall/modules/information_screen/information_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +12,20 @@ class CafeScreen extends StatefulWidget {
 }
 
 class _CafeScreenState extends State<CafeScreen> {
+  final List<String> happy = [
+    'Cafeshop',
+    'Bicafe',
+    'Caffe Casa',
+    'Caribou Coffe',
+    'Cilantro',
+    'Costa Coffe',
+    'Dunkin Dounts',
+    'Espresso Lab',
+    'Starbucks',
+    'The Coffee Maker',
+    'Nero Cafe',
+    'House Of Cocoa'
+  ];
   Color _iconColor = Colors.grey;
 
   IconData _iconShape = Icons.favorite_border;
@@ -28,7 +39,7 @@ class _CafeScreenState extends State<CafeScreen> {
           backgroundColor: Colors.blueGrey,
         ),
         body: ListView.builder(
-            itemCount: 31,
+            itemCount: 12,
             itemBuilder: (BuildContext context, int index) {
               return Card(
                 child: ListTile(
@@ -55,7 +66,7 @@ class _CafeScreenState extends State<CafeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "cafeshop",
+                        '${happy[index]}',
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
