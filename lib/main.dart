@@ -1,10 +1,16 @@
+import 'package:http/http.dart';
+import 'dart:io';
+
+import 'package:ease_mall/shared/dio_helper.dart';
 import 'package:flutter/material.dart';
 
 import 'modules/login_page/login_page.dart';
 import 'modules/welcome_page/welcome_page.dart';
 
 void main() {
+  DioHelper.init();
   runApp(const MyApp());
+  HttpOverrides.global = MyHttpOverrides();
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +38,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
+}
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -113,7 +125,9 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
+
   }
 }
